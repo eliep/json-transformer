@@ -1,0 +1,27 @@
+{
+  "name": "eliep/json-transformer",
+  "type": "library",
+  "description" : "Json Transformer is a library helping json data manipulation",
+  "keywords": ["php", "json"],
+  "license": "MIT",
+  "homepage": "http://github.com/eliep/json-transformer",
+  "authors": [
+    {
+      "name" : "Elie Prudhomme",
+      "email" : "eprudhomme@gmail.com",
+      "homepage" : "https://github.com/eliep/"
+    }
+  ],
+  "require": {
+    "peekmo/jsonpath": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "JsonTranformer\\": "src/",
+      "Test\\": "test/"
+    }
+  }
+}
