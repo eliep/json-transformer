@@ -66,9 +66,24 @@ in the "Combined transformation" section.
 ## Basic transformation
 
 ### Create a Transform
+A Transform is created via the `path($path)` static method
 
+```php
+  $tranform = Transform::path("$.name");
+```
+
+The path argument must be a valid json path as defined [here](http://goessner.net/articles/JsonPath/).
+By default, this transformation will return value for the given path when applied to a json.
+Here it will be the value of the `name` property.
+
+```php
+  $name = $transform($gizmo);
+  // $name == "gizmo"
+```
 
 ### pick
+This transformation is the one used by default when creating a Transform.
+So `Transform::path("$.name")` is the same as `Transform::path("$.name")->pick()`.
 
 ### pickBranch
 
