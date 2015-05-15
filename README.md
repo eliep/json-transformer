@@ -8,6 +8,8 @@ and use [JsonPath](https://github.com/Peekmo/JsonPath) to access json properties
 ```php
   <?php
 
+  use JsonTransformer\Transform;
+
   $gizmo = [
     "name" => "gizmo",
     "description" => [
@@ -49,6 +51,50 @@ and use [JsonPath](https://github.com/Peekmo/JsonPath) to access json properties
   */
 ```
 
+## How it work
+Changing gizmo in gremlin require several transformation of the original json,
+like scaling the size property or copying the loves property to the hates one.
+These transformations are all functions that take a json as input and return a new one.
+
+The Transform class contains several method to create these functions, depending on
+the desired transformation. They are described in the "Basic transformation" section.
+
+The Transform class also contains method to combine these functions, all explained
+in the "Combined transformation" section.
+
+
+## Basic transformation
+
+### Create a Transform
+
+
+### pick
+
+### pickBranch
+
+### copyFrom
+
+### put
+
+### update
+
+### insert
+
+
+## Combined transformation
+
+### merge
+
+### andThen
+
+### orElse
+
+
+## Optional value for invalid path
+
+### Path validation
+
+### opt
 
 
 

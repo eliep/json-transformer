@@ -111,11 +111,11 @@ class TransformValidationTest extends PHPUnit_Framework_TestCase {
    *
    */
   public function testCopyFrom() {
-    $t = Transform::path("$.key25.key251")->copyFrom((new Transform("$.keyB.keyB1"))->opt()->pick());
+    $t = Transform::path("$.key25.key251")->copyFrom(Transform::path("$.keyB.keyB1")->opt());
     $res = $t->apply($this->testJson);
     $this->assertEquals(["key25" => ["key251" => []]], $res);
 
-    $t = Transform::path("$.key25.key251")->copyFrom((new Transform("$.keyB.keyB1"))->pick());
+    $t = Transform::path("$.key25.key251")->copyFrom(Transform::path("$.keyB.keyB1"));
     try {
       $exceptionRaised = false;
       $res = $t->apply($this->testJson);
@@ -124,7 +124,7 @@ class TransformValidationTest extends PHPUnit_Framework_TestCase {
     }
     $this->assertTrue($exceptionRaised);
 
-    $t = Transform::path("$.key25[*].key251")->copyFrom((new Transform("$.keyB.keyB1"))->pick());
+    $t = Transform::path("$.key25[*].key251")->copyFrom(Transform::path("$.keyB.keyB1"));
     try {
       $exceptionRaised = false;
       $res = $t->apply($this->testJson);

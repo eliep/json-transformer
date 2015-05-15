@@ -54,7 +54,7 @@ class TransformTest extends PHPUnit_Framework_TestCase {
 
 
   public function testCopyFrom() {
-    $t = Transform::path("$.key25.key251")->copyFrom((new Transform("$.key2.key21"))->pick());
+    $t = Transform::path("$.key25.key251")->copyFrom(Transform::path("$.key2.key21"));
 
     $res = $t->apply($this->testJson);
 
@@ -288,9 +288,9 @@ class TransformTest extends PHPUnit_Framework_TestCase {
         Transform::path("$.features")->put(["skinny", "ugly", "evil"]))->merge(
         Transform::path("$.danger")->put("always") )
       ) )->merge(
-      Transform::path("$.hates")->copyFrom((new Transform("$.loves"))->pick()) );
+      Transform::path("$.hates")->copyFrom( Transform::path("$.loves") ) );
 
-    $res = $t->apply($gizmo);
+    $res = $t($gizmo);
 
     $this->assertEquals($gremlin, $res);
   }

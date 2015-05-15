@@ -9,7 +9,7 @@ class Transform {
   private $transformer = null;
   private $opt = null;
 
-  public function __construct($path = "") {
+  private function __construct($path = "") {
     $this->path = $path;
     $this->pick();
 
