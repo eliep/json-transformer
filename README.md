@@ -51,7 +51,7 @@ and use [JsonPath](https://github.com/Peekmo/JsonPath) to access json properties
   */
 ```
 
-## How it work
+## How it works
 Changing gizmo in gremlin require several transformation of the original json,
 like scaling the size property or copying the loves property to the hates one.
 These transformations are all functions that take a json as input and return a new one.
